@@ -1,0 +1,13 @@
+1. Dockerfile name should be start and save as a Dockerfile in your directory 
+2. Dockerfile is not able to lookup in upper or outside of parent directory. 
+FROM ---- Define base image that you wanna use for build context 
+LABEL ---- define user variation and identity kEY:Value 
+RUN ----- run and execute coomand bin instruction in image layer 
+COPY ---- copy your data in image 
+ADD  ---- same copy - tar file extract  link data
+EXPOSE --- image port show 
+CMD  ---- run commands 
+ENTRYPOINT ---  
+Env ---- set build Env variables 
+ARG ---- 
+
