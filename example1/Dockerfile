@@ -4,6 +4,6 @@ LABEL purpose="learning dockerfile"
 
 RUN yum install nginx -y 
 
-RUN echo "/usr/bin/nginx" >> ~/.bashrc
+RUN echo "/usr/sbin/nginx" >> ~/.bashrc
 
 EXPOSE 80
