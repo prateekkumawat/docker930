@@ -16,6 +16,7 @@ RUN sed -i /etc/ssh/sshd_config \
         -e 's/\(session\s*\)required\(\s*pam_loginuid.so\)/\1optional\2/' \
         -e '/pam_motd/s/^/#/'
 
+RUN mkdir -p /var/run/sshd         
 RUN ssh-keygen -A
 
 # Create the SSH directory and set permissions
