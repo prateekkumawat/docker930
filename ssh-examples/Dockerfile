@@ -4,6 +4,19 @@ FROM  ubuntu:latest
 RUN apt-get update && \
     apt-get install -y openssh-server openssh-client nginx && \
     rm -rf /var/lib/apt/lists/*
+
+RUN sed -i /etc/ssh/sshd_config \
+        -e 's/#PermitRootLogin.*/PermitRootLogin no/' \
+        -e 's/#RSAAuthentication.*/RSAAuthentication yes/'  \
+        -e 's/#PasswordAuthentication.*/PasswordAuthentication no/' \
+        -e 's/#SyslogFacility.*/SyslogFacility AUTH/' \
+        -e 's/#LogLevel.*/LogLevel INFO/' && \
+    mkdir /var/run/sshd && \
+    sed -i /etc/pam.d/sshd \
+        -e 's/\(session\s*\)required\(\s*pam_loginuid.so\)/\1optional\2/' \
+        -e '/pam_motd/s/^/#/'
+
+
 # Create the SSH directory and set permissions
 RUN useradd -m sshuser && \
     mkdir -p /home/sshuser/.ssh && \
