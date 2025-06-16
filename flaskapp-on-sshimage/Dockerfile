@@ -11,7 +11,7 @@ WORKDIR /home/sshuser/app
 COPY requirements.txt .
 COPY src/ .
 
-RUN pip3.12 install -r requirements.txt
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 CMD ["python", "app.py"]
 
