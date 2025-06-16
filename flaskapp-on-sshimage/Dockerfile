@@ -15,7 +15,7 @@ COPY src/ .
 
 RUN pip3 install --break-system-packages  -r requirements.txt
 
-CMD ["python", "app.py"]
+CMD ["python3.12", "app.py"]
 
 EXPOSE 5000
 
