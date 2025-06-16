@@ -2,7 +2,9 @@ FROM prateekkumawat/sshimage:debian-bookwarm
 
 # add python packages in os 
 RUN apt-get update && \
-    apt install -y python3 python3-pip
+    apt install -y python3 python3-pip 
+
+RUN apt remove -y python3-blinker
 
 # create app directory
 RUN mkdir -p /home/sshuser/app
