@@ -15,8 +15,9 @@ COPY src/ .
 
 RUN pip3 install --break-system-packages  -r requirements.txt
 
-CMD ["python3.12", "app.py"]
-ENTRYPOINT ["/usr/sbin/sshd"]
+#CMD ["python3.12", "app.py"]
+#ENTRYPOINT ["/usr/sbin/sshd"]
+CMD bash -c "/usr/sbin/sshd -D & exec python3.12 app.py"
 
 EXPOSE 5000
 
