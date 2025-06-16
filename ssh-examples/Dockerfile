@@ -34,8 +34,5 @@ CMD ["/usr/sbin/sshd", "-D"]
 # workdir for the container
 WORKDIR /home/sshuser
 
-# User to run the SSH server
-USER sshuser
-
 # Expose the SSH port
 EXPOSE 22
