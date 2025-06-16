@@ -11,7 +11,7 @@ WORKDIR /home/sshuser/app
 COPY requirements.txt .
 COPY src/ .
 
-RUN pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 
 CMD ["python", "app.py"]
 
