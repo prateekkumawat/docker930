@@ -8,6 +8,15 @@ services:
       volumes: 
        - vol1:/usr/share/nginx/html
 
+    app: 
+      container_name: web_httpd
+      image: httpd:latest
+      ports: 
+       - 8001:80 
+      volumes: 
+       - vol2:/usr/local/apache2/htdocs/  
+
 volumes: 
   vol1:
+  vol2:
 
