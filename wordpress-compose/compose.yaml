@@ -21,7 +21,7 @@ services:
      volumes: 
       - wordpress_database_vol:/var/lib/mysql
      environment:
-       MYSQL_USERNAME: wordpress
+       MYSQL_USER: wordpress
        MYSQL_PASSWORD: redhat
        MYSQL_ROOT_PASSWORD: redhat
        MYSQL_DATABASE: wordpressdb
