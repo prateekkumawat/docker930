@@ -1,0 +1,31 @@
+version: "3.6"
+services: 
+  wordpress: 
+    container_name: wordpress_app
+    image: wordpress:latest
+    ports: 
+    - 8088:80
+    volumes: 
+    - ./wordress_data:/var/www/html/
+    environment:
+      WORDPRESS_DB_HOST: database
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: redhat
+      WORDPRESS_DB_NAME: wordpressdb
+
+  database:
+     container_name: wordpress-mysql-database
+     image: mysql:latest
+     ports: 
+      - 3306:3306 
+     volumes: 
+      - wordpress_database_vol:/var/lib/mysql
+     environment:
+       MYSQL_USERNAME: wordpress
+       MYSQL_PASSWORD: redhat
+       MYSQL_ROOT_PASSWORD: redhat
+       MYSQL_DATABASE: wordpressdb
+
+volumes: 
+  wordpress_database_vol:
+       
