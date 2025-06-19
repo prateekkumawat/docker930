@@ -29,31 +29,60 @@ function App() {
   }, []);
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h2>User Management</h2>
+    <div className="container py-5">
+      <h2 className="mb-4 text-center">👥 User Manager</h2>
 
-      <input
-        placeholder="Name"
-        value={form.name}
-        onChange={(e) => setForm({ ...form, name: e.target.value })}
-        style={{ marginRight: 10 }}
-      />
-      <input
-        placeholder="Email"
-        value={form.email}
-        onChange={(e) => setForm({ ...form, email: e.target.value })}
-        style={{ marginRight: 10 }}
-      />
-      <button onClick={addUser}>Add User</button>
+      <div className="row mb-4">
+        <div className="col-md-4">
+          <input
+            className="form-control"
+            placeholder="Name"
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+          />
+        </div>
+        <div className="col-md-4">
+          <input
+            className="form-control"
+            placeholder="Email"
+            value={form.email}
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
+          />
+        </div>
+        <div className="col-md-4">
+          <button className="btn btn-primary w-100" onClick={addUser}>
+            ➕ Add User
+          </button>
+        </div>
+      </div>
 
-      <ul style={{ marginTop: "2rem" }}>
-        {users.map((u) => (
-          <li key={u.id}>
-            {u.name} ({u.email}){" "}
-            <button onClick={() => deleteUser(u.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+      <table className="table table-striped text-center">
+        <thead className="table-dark">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th style={{ width: "150px" }}>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((u) => (
+            <tr key={u.id}>
+              <td>{u.name}</td>
+              <td>{u.email}</td>
+              <td>
+                <button className="btn btn-danger btn-sm" onClick={() => deleteUser(u.id)}>
+                  🗑️ Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+          {users.length === 0 && (
+            <tr>
+              <td colSpan="3">No users found.</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
     </div>
   );
 }
