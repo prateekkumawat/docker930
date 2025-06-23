@@ -12,10 +12,10 @@ services:
       - mysqluserpass
       - mysqluser  
     environment:
-      MYSQL_ROOT_PASSWORD: /run/secrets/rootpassword
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/rootpassword
       MYSQL_DATABASE: flaskdb
-      MYSQL_USER: /run/secrets/mysqluser
-      MYSQL_PASSWORD: /run/secrets/mysqluserpass
+      MYSQL_USER_FILE: /run/secrets/mysqluser
+      MYSQL_PASSWORD_FILE: /run/secrets/mysqluserpass
 
 secrets:
    rootpassword:
