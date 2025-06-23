@@ -1,0 +1,18 @@
+version: '3.8'
+services: 
+  database:
+    container_name: mysql-app
+    image: mysql:latest
+    ports:
+      - 3306:3306 
+    volumes: 
+      - mysql:/var/lib/mysql/ 
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: flaskdb
+      MYSQL_USER: flaskuser
+      MYSQL_PASSWORD: flaskpass
+
+volumes:
+  mysql:        
+
