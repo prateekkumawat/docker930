@@ -8,22 +8,22 @@ services:
     volumes: 
       - mysql:/var/lib/mysql/ 
     secrets:
-       - rootpassword
-       - mysqluserpass
-       - mysqluser  
+      - rootpassword
+      - mysqluserpass
+      - mysqluser  
     environment:
-      MYSQL_ROOT_PASSWORD: /run/secret/rootpassword
+      MYSQL_ROOT_PASSWORD: /run/secrets/rootpassword
       MYSQL_DATABASE: flaskdb
-      MYSQL_USER: /run/secret/mysqluser
-      MYSQL_PASSWORD: /run/secret/mysqluserpass
+      MYSQL_USER: /run/secrets/mysqluser
+      MYSQL_PASSWORD: /run/secrets/mysqluserpass
 
 secrets:
    rootpassword:
-     file: rootpassword.txt
+    file: rootpassword.txt
    mysqluserpass:
-     file: mysqluserpass.txt
+    file: mysqluserpass.txt
    mysqluser:
-     file: mysqluser.txt  
+    file: mysqluser.txt  
 volumes:
   mysql:        
 
