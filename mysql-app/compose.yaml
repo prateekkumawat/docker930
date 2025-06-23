@@ -19,11 +19,11 @@ services:
 
 secrets:
    rootpassword:
-     file: ./rootpassword.txt
+     file: rootpassword.txt
    mysqluserpass:
-     file: ./mysqluserpass.txt
+     file: mysqluserpass.txt
    mysqluser:
-     file: ./mysqluser.txt  
+     file: mysqluser.txt  
 volumes:
   mysql:        
 
