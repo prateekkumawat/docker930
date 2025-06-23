@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_password
+      MYSQL_DATABASE: flaskdb
+      MYSQL_USER: flaskuser
+      MYSQL_PASSWORD_FILE: /run/secrets/mysql_password
+    secrets:
+      - mysql_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
+
+secrets:
+  mysql_password:
+    file: ./mysql_password.txt
