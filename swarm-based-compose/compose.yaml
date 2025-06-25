@@ -1,0 +1,14 @@
+version: '3.8'
+services: 
+    web_app: 
+      image: prateekkumawat/infra:webapp
+      ports: 
+        - "8089:80"
+      deploy:
+        mode: replicated
+        replicas: 3 
+        resources:
+          limits:
+            cpus: '1'
+            memory: 350M
+            
